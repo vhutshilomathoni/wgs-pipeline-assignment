@@ -1,0 +1,19 @@
+Bootstrap: docker
+From: alpine:3.18
+
+%post
+    #adding 'bash' because Nextflow needs it to run the script blocks
+    apk add --no-cache openjdk11 wget bash unzip
+    
+    # dwnloading and install Trimmomatic
+    wget https://github.com/usadellab/Trimmomatic/releases/download/v0.39/Trimmomatic-0.39.zip
+    unzip Trimmomatic-0.39.zip
+    mkdir -p /opt/trimmomatic
+    mv Trimmomatic-0.39/* /opt/trimmomatic/
+    rm -rf Trimmomatic-0.39 Trimmomatic-0.39.zip
+
+%environment
+    export TRIMMOMATIC_JAR=/opt/trimmomatic/trimmomatic-0.39.jar
+
+%runscript
+    java -jar /opt/trimmomatic/trimmomatic-0.39.jar "$@"
