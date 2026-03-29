@@ -39,3 +39,7 @@ Post-processing (sorting and indexing) was performed on the output BAM to facili
 Below is a screenshot showing a confirmed mutation on Chromosome 19. The BAM alignment matches the variant stored in the SQLite database.
 
 ![IGV Screenshot of SNP at 19:61208](igv_snp.png)
+
+How to Run
+To execute this pipeline , use the following comand:
+nextflow run main.nf -profile standard
