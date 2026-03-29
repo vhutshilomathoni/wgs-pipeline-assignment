@@ -17,7 +17,7 @@ The pipeline is made using Nextflow (DSL2).
 process flow: FastQC -> Trimmomatic -> BWA-MEM -> Samtools (BAM) -> FreeBayes (VarCall) -> SQLite3 (Database).
 
 Execution: Run via the run-pipe wrapper or directly:
-./nextflow run main.nf -resume
+nextflow run main.nf -resume
 
 3. Database Structure
 
